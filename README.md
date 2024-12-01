@@ -152,15 +152,12 @@ In this question, you will implement a function that dynamically generates an HT
 
 The function will take a tag name as a string, followed by a series of attribute-value pairs. It will generate a string representing an HTML tag with the given attributes.
 
-The concept of variable-length arguments (`...`) in C allows you to pass a variable number of arguments to a function. You will use the `stdarg.h` library to handle these arguments. This technique is especially useful in situations like constructing dynamic HTML tags where the number of attributes may vary.
+The concept of variable-length arguments (`...`) in C allows you to pass a variable number of arguments to a function. You will use the `stdarg.h` library to handle these arguments.
 
 ### **Function Prototype**
 
 ```c
-#include <stdio.h>
 #include <stdarg.h>
-#include <string.h>
-#include <stdlib.h>
 
 char* createHTMLTag(const char* tag, int count, ...);
 ```
