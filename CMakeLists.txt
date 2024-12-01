@@ -17,6 +17,9 @@ include_directories(include/)
 
 add_executable(main
         src/main.cpp
+        src/Q1_Newton-Raphson.c
+        src/Q2_MapAndFilter.c 
+        src/Q3_HTMLTagCreator.c
         src/unit_test.cpp
 )
 
