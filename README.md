@@ -21,7 +21,7 @@ The Newton-Raphson method is an iterative technique used to find the root of a r
 The formula used in each iteration is:
 
 <p align="center">
-<img src="https://latex.codecogs.com/svg.latex?x_{n+1}=x_n-\frac{f(x_n)}{f'(x_n)}" alt="Newton-Raphson formula" style="width: 20%;">
+<img src="https://latex.codecogs.com/svg.latex?x_{n+1}=x_n-\frac{f(x_n)}{f'(x_n)}" alt="Newton-Raphson formula" style="width: 250px;">
 </p>
 
 In this implementation, the algorithm will continue iterating until the absolute difference between two consecutive approximations is smaller than a tolerance of \( 1e-6 \), indicating that the solution has converged.
@@ -43,7 +43,7 @@ double derivative(double (*func)(double), double x);
 2. **`derivative`**: This function computes the derivative of the given function `func` at a point `x`. The derivative is approximated using the difference quotient:
 
 <p align="center">
-<img src="https://latex.codecogs.com/svg.latex?f'(x)%20%5Capprox%20%5Cfrac%7Bf(x+h)%20-%20f(x)%7D%7Bh%7D" alt="Derivative approximation formula" style="width: 20%;">
+<img src="https://latex.codecogs.com/svg.latex?f'(x)%20%5Capprox%20%5Cfrac%7Bf(x+h)%20-%20f(x)%7D%7Bh%7D" alt="Derivative approximation formula" style="width: 250px">
 </p>
 
 Where \( h \) is a small value (e.g., \( h = 0.0001 \)).
