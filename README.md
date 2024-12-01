@@ -16,7 +16,7 @@ In this question, you will implement the Newton-Raphson method for finding the r
 
 ### **Explanation of Newton-Raphson Method**
 
-The Newton-Raphson method is an iterative technique used to find the root of a real-valued function. The algorithm begins with an initial guess \( x_0 \), and then iteratively refines this guess to get closer to the actual root.
+The Newton-Raphson method is an iterative technique used to find the root of a real-valued function. The algorithm begins with an initial guess `initial`, and then iteratively refines this guess to get closer to the actual root.
 
 The formula used in each iteration is:
 
@@ -26,7 +26,7 @@ The formula used in each iteration is:
 
 In this implementation, the algorithm will continue iterating until the absolute difference between two consecutive approximations is smaller than a tolerance of \( 1e-6 \), indicating that the solution has converged.
 
-**_For simplicity, You may assume that the function passed to `newtonRaphson` has exactly one real root._**
+**For simplicity, You may assume that the function passed to `newtonRaphson` has exactly one real root.**
 
 ### **Function Prototype**
 
