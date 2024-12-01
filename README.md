@@ -81,6 +81,139 @@ For the example function \( f(x) = x^2 - 4 \), the root should be approximately 
 
 ---
 
+## **Question 2: Implementing Map and Filter Functions Using Pointer to Function**
+
+### **Objective**
+
+In this question, you will implement two functions, `map` and `filter`, which operate on an array and a function provided as a pointer. Both functions should accept the array size and a pointer to the function to be applied to each element of the array. The `map` function modifies the array in place, while the `filter` function creates a new array containing only the elements that pass a certain condition.
+
+### **Function Prototypes**
+
+```c
+void map(double *arr, int size, double (*func)(double));
+
+double* filter(const double *arr, int size, bool (*func)(double));
+```
+
+### **Detailed Description**
+
+1. **`map`**:
+   - The `map` function takes an array of integers `arr`, the size of the array `size`, and a pointer to a function `func` that outputs a number on each element of the array.
+   - The `map` function should apply the function `func` to each element of the array and modify the array in place. The map function should not return anything.
+
+   **Example Usage**:
+
+   ```c
+   double square(double x) {
+       return x*x;  // Example function to square the number
+   }
+
+   double arr[] = {1, 2, 3, 4};
+   int size = sizeof(arr) / sizeof(arr[0]);
+
+   map(arr, size, square);
+   ```
+
+   After running the `map` function, the array `arr` should be modified to `{1.0, 4.0, 9.0, 16.0}`.
+
+2. **`filter`**:
+   - The `filter` function takes an array of integers `arr`, the size of the array `size`, and a pointer to a function `func` that returns a boolean indicating whether an element should be included in the resulting array.
+   - The `filter` function should create a new array that contains only the elements for which `func` returns `true`. You should dynamically allocate memory for the result array as you identify elements that pass the test.
+
+   **Example Usage**:
+
+   ```c
+   bool isEven(double x) {
+       return ((int)x % 2 == 0);  // Example function to check if the number is even
+   }
+
+   int arr[] = {1, 2, 3, 4, 5, 6};
+   int size = sizeof(arr) / sizeof(arr[0]);
+
+   int *result = filter(arr, size, isEven);
+   ```
+
+   After running the `filter` function, the new array `result` should contain `{2, 4, 6}`.
+
+### **Notes**
+
+- The `map` function will modify the original array directly and does not return anything.
+- The `filter` function will dynamically allocate memory for a new array. Make sure to reallocate memory each time a new element passes the filter, and ensure you return the new array.
+
+---
+
+## **Question 3: Creating an HTML Tag Generator Using Variable Length Arguments**
+
+### **Objective**
+
+In this question, you will implement a function that dynamically generates an HTML tag with attributes using variable-length arguments in C. This exercise will help you understand how to work with variable-length arguments and how to build dynamic strings based on input.
+
+### **Explanation**
+
+The function will take a tag name as a string, followed by a series of attribute-value pairs. It will generate a string representing an HTML tag with the given attributes.
+
+The concept of variable-length arguments (`...`) in C allows you to pass a variable number of arguments to a function. You will use the `stdarg.h` library to handle these arguments. This technique is especially useful in situations like constructing dynamic HTML tags where the number of attributes may vary.
+
+### **Function Prototype**
+
+```c
+#include <stdio.h>
+#include <stdarg.h>
+#include <string.h>
+#include <stdlib.h>
+
+char* createHTMLTag(const char* tag, int count, ...);
+```
+
+### **Detailed Description**
+
+1. **`createHTMLTag`**: This function generates an HTML tag as a string.
+   - It takes the tag name as a string (e.g., `"a"`, `"div"`) and an integer `count`, which indicates how many attribute-value pairs will follow.
+   - The function uses variable-length arguments to accept pairs of attribute names and their corresponding values. The attributes are provided as `const char*` pairs.
+   - The function constructs the HTML tag string by appending each attribute to the tag in the form of `attribute="value"`.
+   - The function must return a dynamically allocated string that represents the complete HTML tag.
+
+   **Key Concepts**:
+   - Use `va_list`, `va_start()`, and `va_arg()` to handle variable-length arguments.
+   - Dynamically allocate memory for the resulting string since the size of the tag depends on the number of attributes.
+   - Ensure proper memory management by allocating enough space and returning the string.
+
+### **Example Usage**
+
+```c
+int main() {
+
+    char* html = createHTMLTag("a", 2, "href", "https://example.com", "target", "_blank");
+    printf("%s\n", html);  // Output: <a href="https://example.com" target="_blank"></a>
+    
+    free(html);
+    return 0;
+
+}
+```
+
+### **Expected Output**
+
+For the example call:
+
+```c
+char* html = createHTMLTag("a", 2, "href", "https://example.com", "target", "_blank");
+```
+
+The output will be:
+
+```html
+<a href="https://example.com" target="_blank"></a>
+```
+
+### **Notes**
+
+- The function uses variable-length arguments to handle a flexible number of attribute-value pairs.
+- You must ensure the memory allocated is sufficient to hold the resulting string. The string will contain the tag name, the attributes, and the closing tag.
+- After building the string, ensure that it is null-terminated and properly formatted.
+
+---
+
 If you have any questions regarding the homework, feel free to reach out:
 
 -   **Teaching Assistant**: Seyyed Mohammad Hamidi
