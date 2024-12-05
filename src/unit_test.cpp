@@ -113,7 +113,7 @@ TEST(FilterTest, NoElementsPassFilter) {
 
 // Test Case 4: Testing the filter function with an empty array
 TEST(FilterTest, EmptyArrayReturnsNull) {
-	double arr[] = {};
+	double* arr = nullptr;
 	int size = 0;
 
 	double* result = filter(arr, size, isEven);
